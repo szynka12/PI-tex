@@ -1,0 +1,96 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styl}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%   Package providing evry package necessary and defining style
+%   <DO NOT EDIT IF YOU DON'T KNOW WHAT YOU ARE DOING>
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+%Lipsum text
+\RequirePackage{lipsum}
+
+%Polish language
+\RequirePackage[T1]{fontenc}
+\RequirePackage{polski}
+\RequirePackage[utf8]{inputenc} 
+
+%Headers and footers
+\RequirePackage{fancyhdr}
+\fancypagestyle{main}{%
+	\fancyhf{}
+	\fancyhead[L]{\leftmark}
+    \fancyfoot[R]{\thepage}
+    \fancyfoot[L]{\makeatletter\@title\makeatother \\%
+             \footnotesize{ T.Szpartaluk - Kozak, W. Sadowski, K. Koniarski,  P. Pierwocha}}
+}
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyhead{}
+    \renewcommand{\headrulewidth}{0pt}
+    % \fancyhead[L]{\leftmark}
+    \fancyfoot[R]{\thepage}
+    \fancyfoot[L]{\makeatletter\@title\makeatother \\%
+             \footnotesize{ T.Szpartaluk - Kozak, W. Sadowski, K. Koniarski,  P. Pierwocha}}
+}
+
+%Math things
+\RequirePackage{amsmath, amssymb, bm, nicefrac}
+
+%Colours
+\RequirePackage{xcolor}
+
+%Page geometry~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\RequirePackage{geometry}
+\geometry{
+ a4paper,
+ %total={170mm,257mm},
+ left=20mm,
+ right=20mm,
+ top=20mm,
+ }
+
+%Customizing enumeration and itemize
+\RequirePackage{enumitem}
+
+%Nice plots and drawings~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\RequirePackage{tikz, pgfplots}
+\RequirePackage{standalone}
+\pgfplotsset{compat=1.16} 
+
+
+%New commands~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ \newcommand{\bVec}[1]{
+     \bm{{#1}}
+ }
+
+\newcommand{\vMag}[1]{
+    \lvert {#1} \rvert
+}
+
+\newcommand{\placeTitlePage}{
+    \begin{titlepage}
+        \centering
+        {\scshape\LARGE Politechnika Warszawska\par}
+        \vspace{0.3cm}
+        {\scshape\large Wydział Mechaniczny Energetyki i Lotnictwa\par}
+        \vspace{1cm}
+        {\scshape\Large Projekt Integrujący - NK479\par}
+        \vspace{1.5cm}
+        {\huge\bfseries \makeatletter\@title\makeatother \par}
+        \vspace{0.2cm}
+        {\bfseries Z przeznaczeniem do montażu na dachu budynku Instytutu Techniki Cieplnej, przy ulicy Nowowiejskiej 21/25\par}
+        \vspace{2cm}
+        {\Large\itshape Tomasz Szpartaluk - Kozak\par}
+        {\Large\itshape Kacper Koniarski\par}
+        {\Large\itshape Piotr Pierwocha\par}
+        {\Large\itshape Wojciech Sadowski\par}
+        \vfill
+    % Bottom of the page
+        {\large \today\par}
+    \end{titlepage}
+}
+%Redefinitions~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%Title page redefinition
+
+
+\endinput
