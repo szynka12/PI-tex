@@ -1,5 +1,5 @@
 # PI-tex
-Report from integration project 
+Report for group project 
 
 Nowe użyteczne komendy
 1. Wektory pisane boldem:
