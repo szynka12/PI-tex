@@ -13,7 +13,30 @@
                 \item 
             \end{itemize}
         \subsection{Układ napędowy}
-        	\input{projekt/beben_projekt.tex}
+        	\input{Projekt/beben_projekt.tex}
         \subsection{Układ nastawny}
         \subsection{Układ taktujący}
+            Układ taktujący składa się z trzech głównych elementów:
+            \begin{itemize}
+                \item wahadła;
+                \item koła wychwytowego;
+                \item wychwytu.
+            \end{itemize}
+            Okres drgań wahadła fizycznego jest stały. Dzięki temu możliwe jest wykorzystanie wahadła do regulacji czasu jaki zajmuje jeden takt zegara.
+            Ruch wahadła jest sprzęgnięty z cała resztą mechanizmu za pomocą koła zębatego nazywanego wychwytowym oraz wychwytu.
+            
+            Wychwyt jest elementem w kształcie kotwicy (rysunek~\ref{fig::wychwyt}), który naprzemiennie blokuje~i pozwala na swobodny ruch koła wychwytowego.
+            Koło jest połączone poprzez przekładnie z całą resztą układu napędowego.
+            W ten sposób, gdy koło wychwytowe jest zablokowane, cały mechanizm stoi w miejscu, natomiast gdy może ono się ruszać, moment jest przekazywany przez cały układ napędowy~i wskazówki się przesuwają.
+
+            Ruch wychwytu jest sprzęgnięty z ruchem wahadła. W ten sposób, dobierając odpowiednio ilość zębów koła wychwytowego oraz przełożenia w układzie napędowym, można skorelować długość okresu wahadła z ilością taktów zegara.
+            
+            \begin{figure}[b]
+            \centering
+            \includegraphics[width=0.9\linewidth]{Obliczenia/wychwyt}
+            \caption{Schematyczny rysunek mechanizmu wychwytowego. Na rysunku widoczne są dwa stany w jakich może znajdować się mechanizm. Po lewej stronie zaprezentowana jest sytuacja, w której ruch koła jest zablokowany przez wychwyt po lewej stronie. Po prawej, koło wychwytowe zostało zwolnione, obróciło się (stare położenie jest zaznaczone szarym kolorem), a następnie zostało zablokowane po prawej stronie. Strzałką zaznaczono kierunek obrotu koła wychwytowego.} 
+            \label{fig::wychwyt}
+            \end{figure}
+
+
         \subsection{Rama}
