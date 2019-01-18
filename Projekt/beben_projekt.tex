@@ -1,0 +1,108 @@
+Zegar napędzany jest mechanicznie, za pomocą masy na linie nawiniętej na bęben, który jest połączony przez sprzęgło jednokierunkowe z przekładnią. W celu poprawnego działania zegara, napęd musi dysponować wystarczającym momentem, który w każdym takcie dostarczy energię na:
+
+\begin{itemize}
+\item Dołożenie energii do wahadła
+\item Skompensowanie strat ciernych w przekładni
+\item Skompensowanie oporów stawianych wskazówkom przez wiatr oraz ptaki na nich siadające.
+\end{itemize}
+
+Powyższe źródła strat stanowią podstawę do budowy modelu energetycznego mechanizmu, na podstawie którego wyznaczono wymiary i masy elementów napędu.
+
+Jako dane wejściowe przyjęto następujące wielkości, przedstawione w tabeli \ref{tab:bebn_zal}:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|c|c}
+Nazwa & Symbol & Wartość & Jednostka \\ \hline \hline
+Czas pracy pomiędzy nawijaniem& \(T_z\) & 8 & dni \\
+Okres wahadła & \(T_w\) & 4 & s \\
+Prędkość kątowa bębna & \(\omega_b\) & 2 & obr/dzień\\
+Przełożenie & \(i_z\) &  600  & - \\
+Sprawność przekładni & \(\eta_z\) & 0.8 & - \\
+Sprawność wahadła w 1 cyklu & \(\eta_w\) & 0.995 & -\\
+Amplituda kątowa wahadła & \(\theta_w\) & 5 & stopnie \\
+Moment bezwładności wahadła & \(I_w\) & 1 & \(kg m^2\) \\
+Długość bezwładności wahadła & \(L_w\) & 1 & m \\
+Masa wahadła & \(m_w\) & 300 & kg \\
+\hline
+\end{tabular}
+\caption{Założenia do pracy zegara. Wszystkie obliczenia prowadzone są w jednostkach SI.}
+\label{tab:bebn_zal}
+\end{table}
+
+
+Znając wymiary wahadła można wyznaczyć ilość energii w nim skumulowanej
+\begin{equation}
+E_w = m_w g  L_w (1-cos(\theta_w))
+\end{equation}
+
+Ze sprawności można wyznaczyć stratę energii w jednym cyklu:
+
+\begin{equation}
+\Delta E_w = (1-\eta_w)E_w,
+\end{equation}
+
+oraz potrzebną ilość energii jaką musi dostarczyć układ napędowy w każdym takcie:
+
+\begin{equation}
+\Delta E_b = \frac{\Delta E_w}{\eta_z}.
+\end{equation}
+
+Założony czas pracy i częstotliwość pracy wahadła wyznacza ilość potrzebnych cykli:
+
+\begin{equation}
+n_z = \lfloor\frac{T_z}{T_w}\rfloor
+\end{equation}
+
+Które wyznaczają ilość energii jaką musi wydzielić układ napędowy w jednym okresie pracy (pomiędzy nakręcaniem) \(T_z\):
+\begin{equation}
+E_b = n_Z \Delta E_b
+\end{equation}
+
+Podobnie można wyznaczyć całkowity obrót bębna:
+\begin{equation}
+\Delta \Theta = \frac{T_z}{\omega_b}
+\end{equation}
+
+Parametry swobodne w projekcie bębna to średnica bębna \(D_b\) oraz masa ciężarka \(m_c\). W celu jak najmniejszego obciążenia konstrukcji, Należy tak dobrać te parametry aby moment generowany przez bęben był jak najmniejszy. Można go wyznaczyć bardzo prosto:
+\begin{equation}
+M_b = \frac{D_b}{2}m_c g
+\end{equation}
+
+Jednak dobór nie jest dowolny. Istnieją ograniczenia konstrukcyjne:
+
+Ograniczeniem na średnicę bębna jest maksymalna wysokość o jaką może zostać opuszczony ciężarek - innymi słowy jest to wysokość na której jest zamontowany zegar.
+
+\begin{equation}
+\label{eqn:Dbbound}
+D_b \leq \frac{\Delta h_{cmax}}{\Delta \Theta_b}
+\end{equation}
+
+Zależnie od doboru długości liny i wstępnego nawinięcia, ciężarek może osiąść na ziemi, lub - w przypadku rozwinięcia się całej liny - ramię momentu będzie zerowe. W obydwu przypadkach zegar przestanie pracować, gdyż zatrzymana przekładnia bardzo szybko wytraci energię zmagazynowaną w wahadle.
+
+Ponadto drugie ograniczenie wynika z energii zmagazynowanej w wiszącym ciężarku, które w czasie jednego okresu pracy nie może być mniejsza niż wymagana przez cały mechanizm:
+\begin{equation}
+\label{eqn:EbBound}
+\Delta \Theta_b \frac{D_b}{2} m_c g \geq E_b
+\end{equation}
+
+Ostatecznie postawiony jest problem optymalizacji z ograniczeniami. W tym prostym przypadku, można go rozwiązać analitycznie. Ograniczenie \ref{eqn:Dbbound} jest zależne jedynie od średnicy, zatem można zamienić nierówność na równość:
+
+\begin{equation}
+D_b = \frac{\Delta h_{cmax}}{\Delta \Theta_b}
+\end{equation}
+
+Masa ciężarka jest zatem wyznaczona z ograniczenia \ref{eqn:EbBound}, również poprzez przyjęcie równości:
+\begin{equation}
+m_c = \frac{2E_b}{g\Delta \Theta_b D_b}
+\end{equation}
+
+Takie rozwiązanie daje moment równy:
+\begin{equation}
+M_b = \frac{E_b}{\Delta \Theta_b}
+\end{equation}
+Powyższy wzór nie przypadkiem przypomina zależność na pracę którą musi wykonać moment w jednym okresie pracy.
+
+Powyższe wielkości uwzględniają niepewności projektowe, wyrażone przez sprawności przekładni i wahadła. Sprawność przekładni uwzględnia również straty generowane przez wskazówki zegara obciążone warunkami atmosferycznymi i gołębiami siedzącymi na wskazówkach, które wprowadzają moment oporowy. Należyty dobór momentu, bez zbędnego naddatku jest istotny, gdyż wszelkie niespożytkowane zasoby zostaną wydzielone na kole wychwytowym, co będzie prowadzić do szybszego zużycia mechanizmu.
+
+Powyższe wyniki posłużą do dalszych obliczeń, wytrzymałościowych bębna i wahadła.
