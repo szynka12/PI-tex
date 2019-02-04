@@ -1,8 +1,30 @@
 \chapter{Projekt}
     \section{Wstęp}
+    Praca ta prezentuje wyniki prac nad projektem mechanicznego zegara wieżowego.
+    
+    W ramach projektu wykonano:
+   \begin{itemize}
+   	\item model 3D oraz dokumentację płaską w programie NX,
+   	\item obliczenia dynamiki mechanizmu zegarowego,
+   	\item symulacje wytrzymałościowe najbardziej wytężonych podzespołów.
+   \end{itemize}
+	
+	
         \subsection{Motywacja}
         Powodem podjęcia tego właśnie tematu w ramach przedmiotu Projekt Integrujący, było uświetnienie budynku Instytu Techniki Cieplnej.
+        Ponadto dodatkową pobudką była chęć zmierzenia się z mechanicznym problemem techniczym, z którym nie mieliśmy styczności.
         \subsection{Przegląd rozwiązań technicznych w technice zegarowej}
+        Wśród większości mechanicznych zegarów wieżowych można znaleźć wiele podobieństw.
+        W prawie każdym można wyodrębnić te same moduły.
+        Jednakże najciekawsze są szczegóły, zaś tutaj można znaleźć w obrębie poszczególnych modułów różne rozwiązania techniczne:
+        \begin{enumerate}
+        	\item Układ taktujący - istnięją dwa rozwiązania wychwytowe:
+        	\begin{itemize}
+        		\item symetryczna kotwica wychwytowa - prostsze w wykonaniu, jednakże mniej dokładnie odmierza czas,
+        		\item niesymetryczna kotwica wychwytowa - trudniejsze w wykonaniu, lecz pozwala uzyskać większość dokładność odmierzanego czasu.
+        	\end{itemize}
+        \item Nie wiem czy coś jeszcze godnego uwagi było
+       	\end{enumerate}	
 
     \section{Założenia projektowe}
     Na początku tworzenia projektu przeanalizowano wiele aspektów całego przedsięwzięcia.
@@ -19,7 +41,8 @@
     	\item Okres drgań pracy wahadła: 4s.
     	Przede wszystkim istotne jest aby była to liczba naturalna, aby w dalszym etapie można było łatwiej dobrać koła zębate przekładni.
     	\item Czas pracy zegara między nakręceniami: 8 dni.
-    	Wzięto tutaj pod uwagę możliwe wystąpienie świąt państwowych, 
+    	Przy określeniu tej wielkości brano pod uwagę możliwe wystąpienie skumulowanych wolnych dni od pracy.
+    	
     \end{itemize}
 
     \section{Podział konstrukcji na moduły}
@@ -32,6 +55,16 @@
         \subsection{Układ napędowy}
         	\input{Projekt/beben_projekt.tex}
         \subsection{Układ nastawny}
+        Niezbędnym elementem każdego zegara jest moduł pozwalający skorygować wskazywaną godzinę.
+        Wiąże się to między innymi ze skończoną dokładnością wykonania wszystkich elementów zegara oraz konieczność zatrzymania go na czas serwisu.
+        Analizując możliwe rozwiązania oraz istniejące już konstrukcje, postanowiono zaprojektować ten układ z użyciem rozłącznego sprzęgła ciernego.
+        Ma ono następujące zalety:
+        \begin{itemize}
+        	\item Pozwala na dowolny obrót ustawianymi wskazówskami.
+        	\item Nie wymaga zatrzymania układu taktującego na czas nastawu godziny.
+        \end{itemize}
+    
+    	
         \subsection{Układ taktujący}
             Układ taktujący składa się z trzech głównych elementów:
             \begin{itemize}
