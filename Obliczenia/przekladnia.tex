@@ -20,9 +20,12 @@ W ramach projektu postanowiono poddać symulacji wytrzymałościowej również k
     \end{figure}
 
 Znaczna część geometrii została podzielona siatką o dość dużych elementach, ponieważ nie przenoszą one znacznych obciążeń.
-Jedynymi miejscami gdzie wykonano siatkę o dużej rozdzielczości z następującymi parametrami:
+Jedynymi miejscami gdzie wykonano siatkę o dużej rozdzielczości są współpracujące zęby.
+Dyskretyzacji dokonano z następującymi parametrami:
 \begin{itemize}
-	\item Na krawędziach styku nadano podział elementami o boku długości 0,027 mm. Dodatkowo obu krawędzi w głąb powierzchnii użyto funkcji inflation z pierwszą warstwą o grubości 0,01mm. Pozwoliło to uzyskać wysoką rozdzielczość na powierzchnii kontaktu obu ciał oraz zaraz pod nią, gdzie pojawiają się największe gradienty naprężeń.
+	\item Na krawędziach styku nadano podział elementami o boku długości 0,027 mm. 
+	Dodatkowo od obu krawędzi w głąb powierzchnii użyto funkcji inflation z pierwszą warstwą o grubości 0,01mm.
+	Pozwoliło to uzyskać wysoką rozdzielczość na powierzchnii kontaktu obu ciał oraz zaraz pod nią, gdzie pojawiają się największe gradienty naprężeń.
 	\item Reszta powierzchnii obu zębów wraz z ich niewielkim otoczeniem jest podzielona na elementy o boku 0,2mm.
 	
 \end{itemize}
@@ -31,17 +34,31 @@ Jedynymi miejscami gdzie wykonano siatkę o dużej rozdzielczości z następują
 	\centering
 	\includegraphics[width=0.9\linewidth]{Obliczenia/siatka_przekladnia}
 	\caption{Siatka elementów skończonych użyta w opisywanej symulacji.} 
-	\label{fig::geometria_plus_BC_przekladnia}
+	\label{fig::mesh_przekladnia}
 \end{figure}
 
-Wyniki obliczeń przedstawiono na rysunku \ref{fig::geometria_plus_BC_przekladnia} w postaci naprężeń zredukowanych.
+Wyniki obliczeń przedstawiono na rysunku \ref{fig::stress_von_mises_przekladnia} w postaci naprężeń zredukowanych.
 Jak widać naprężenia na znaczącym poziomie pojawiają tylko w pobliżu strefy kontaktu.
-Z racji na ich wartość (259,97 MPa) zdecydowano, że koła zębate muszą być wykonane ze stali konstrukcyjnej C55 ulepszanej cieplnie do Re=500 MPa.
-Zapewni to doraźny współczynnik bezpieczeństwa n=1.92.
+Z racji na ich wartość (259,97 MPa) zdecydowano, że koła zębate muszą być wykonane ze stali konstrukcyjnej C55 ulepszanej cieplnie do Re=540 MPa.
+Zapewni to doraźny współczynnik bezpieczeństwa n=2,07.
 
-\begin{figure}[th]
+Na koniec postanowiono dodatkowo sprawdzić elementy pod kątem zmęczeniowym.
+W tym celu najpierw zakładana jest twardość materiału:
+\begin{equation}
+HB=320
+\end{equation} 
+To z kolei pozwala określić krytyczne naprężenia stykowe:
+\begin{equation}
+\sigma_H = 710MPa
+\end{equation} 
+
+Naprężenia otrzymane w symulacji są niższe.
+Zatem zgodnie z teorią Woehlera analizowana para kół zębatych nie osiągnie kresu wytrzymałości zmęczeniowej
+
+
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{Obliczenia/von_mises_stress_przekladnia}
-	\caption{Naprężenia zredukowane(von Mises) dla ułożenia kół w którym występują najwyższe naprężenia zredukowane} 
-	\label{fig::geometria_plus_BC_przekladnia}
+	\caption{Naprężenia zredukowane (von Mises) dla ułożenia kół w którym występują najwyższe naprężenia zredukowane} 
+	\label{fig::stress_von_mises_przekladnia}
 \end{figure}
