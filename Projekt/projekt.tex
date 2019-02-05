@@ -138,21 +138,21 @@
 
             Ruch wychwytu jest sprzęgnięty z ruchem wahadła. W ten sposób, dobierając odpowiednio ilość zębów koła wychwytowego oraz przełożenia w układzie napędowym, można skorelować długość okresu wahadła z ilością taktów zegara.
             
-            \begin{figure}
+            \begin{figure}[th]
             \centering
             \includegraphics[width=0.9\linewidth]{Obliczenia/wychwyt}
             \caption{Schematyczny rysunek mechanizmu wychwytowego. Na rysunku widoczne są dwa stany w jakich może znajdować się mechanizm. Po lewej stronie zaprezentowana jest sytuacja, w której ruch koła jest zablokowany przez wychwyt po lewej stronie. Po prawej, koło wychwytowe zostało zwolnione, obróciło się (stare położenie jest zaznaczone szarym kolorem), a następnie zostało zablokowane po prawej stronie. Strzałką zaznaczono kierunek obrotu koła wychwytowego.} 
             \label{fig::wychwyt}
             \end{figure}
 			
-			\begin{figure}
+			\begin{figure}[th]
 				\centering
 				\includegraphics[width=0.6\linewidth]{Projekt/takt}
 				\caption{Mechanizm taktujący}
 				\label{fig:takt}
 			\end{figure}
 			
-
+	
         \subsection{Rama}
         	Rama zostanie wykonana ze spawanych kształtowników stalowych. Podstawowym założeniem było aby była ona niezależna od całej reszty mechanizmu. Wszystkie koła zębate są zamocowane na dwóch stalowych płytach przykręconych do kształtowników. Bęben, na który nawinięta jest lina z ciężarkiem jest ułożyskowany na dwóch łożyskach wahliwych tak, aby kompensować niedokładności ramy wynikające ze spawania.
         	
@@ -161,15 +161,60 @@
         	Wszystkie dobrane koła zębate oraz układ dostarczania energii wymagają dobrania wałów o odpowiednich średnicach.
         	W tym celu przeprowadzono obliczenia zginania i skręcania dwóch najbardziej obciążonych wałów: wału do którego przymocowany jest bęben z opuszczający obciążenie oraz wału koła głównego.
         	
-        	W przypadku wału z bębnem konieczne jest rozważenie kilku przypadków:
-        	\begin{itemize}
-        		\item 
-        	\end{itemize}
-        	\begin{figure}
+        	Jako pierwszy został poddany analizie wał do którego przymocowany jest bęben.
+        	Na rysunku \ref{fig::shaft_beben} przedstawiono przyłożone obciążenia (przypadek rozwijania liny z ciężarem, na kolejnym przedstawiony jest drugi przypadek) oraz umiejscowienie łożysk. Siły $F_1$ i $F_2$ pochodzą od ciężaru bębna wraz ciężarem dostarczającym energię.
+        	Zaś siła $F_3$ to ciężar wolnobiegu.
+        	Z kolei $M_skr$ pokazuje gdzie wprowadzony jest moment skręcający od bębna oraz gdzie odebrany(wolnobieg).
+        	Wartości obciążeń oraz wymiarów umieszczono w tabeli \ref{tab::beben} dla 3 położeń obciążenia na bębnie.
+        	
+        	
+        
+        
+        	\begin{figure}[th]
         		\centering
         		\includegraphics[width=0.9\linewidth]{Projekt/shaft_beben}
-        		\caption{Schemat obciążeń przyłożonych do wału, na którym zamocowany jest wolnobieg} 
+        		\caption{Schemat obciążeń przyłożonych do wału, na którym zamocowany jest wolnobieg oraz bęben podczas opuszczania ciężaru zamocowanego na bębnie} 
         		\label{fig::shaft_beben}
         	\end{figure}
+        	\begin{figure}[th]
+				\centering
+				\includegraphics[width=0.9\linewidth]{Projekt/shaft_beben2}
+				\caption{Schemat obciążeń przyłożonych do wału, na którym zamocowany jest wolnobieg oraz bęben podczas nawijania na bęben liny z ciężarem} 
+				\label{fig::shaft_beben2}
+			\end{figure}        
+        
+        	W przypadku wału z bębnem konieczne jest rozważenie kilku przypadków:
+        \begin{itemize}
+        	\item Opuszczanie ciężarka - w tym wypadku moment skręcający jest przekazywany od bębna w strone wolnobiegu.
+        	\item Nakręcanie zegara - w tym wypadku moment skręcający jest przekazywany od korby do bębna.
+        	\item Położenie ciężarka na jednym z końców lub w środku bębna - przypadki te należy sprawdzić niezależnie dla obu powyższych.
+        \end{itemize}
+        
+       		Reasumując, należy przeanalizować 6 przypadków obciążeń. 
+       		
+       		\begin{table}[h]
+       			\centering
+       			\begin{tabular}{l|c|c|c}
+       				Wielkość & Początek & Środek & Koniec \\ \hline \hline
+       				$F_1$ [N]& 1299,83 & 711,225 & 122,625 \\ 
+       				$F_2$ [N]& 122,625 & 711,225 & 1299,83 \\ 
+       				$F_3$ [N] & \multicolumn{3}{|c|}{98,1}\\
+       				$M_{skr}$ [Nmm] &  \multicolumn{3}{|c|}{60 000} \\
+       				$L$ [mm] & \multicolumn{3}{|c|}{304} \\
+       				$L_1$ [mm] & \multicolumn{3}{|c|}{72}\\
+       				$L_2$ [mm]  & \multicolumn{3}{|c|}{242} \\
+       				$L_3$ [mm]  & \multicolumn{3}{|c|}{382} \\
+       				
+       				\hline
+       			\end{tabular}
+       			\caption{Wartości obciążeń i wymiarów wałka z bębnem.}
+       			\label{tab::beben}
+       		\end{table}
         	
+        	\begin{figure}[th]
+        		\centering
+        		\includegraphics[width=0.9\linewidth]{Projekt/momenty_gnace_rozwijanie}
+        		\caption{Wykresy momentów gnących dla 3 przypadków umiejscowienia obciążenia na bębnie.} 
+        		\label{fig::momenty_gnace_rozwijanie}
+        	\end{figure}
         
