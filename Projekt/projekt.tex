@@ -1,7 +1,6 @@
 \chapter{Projekt}
     \section{Wstęp}
-    Praca ta prezentuje wyniki prac nad projektem mechanicznego zegara wieżowego.
-    
+    Niniejszy raport prezentuje wyniki prac nad projektem mechanicznego zegara wieżowego.
     W ramach projektu wykonano:
    \begin{itemize}
    	\item model 3D oraz dokumentację płaską w programie NX,
@@ -12,16 +11,16 @@
 	
         \subsection{Motywacja}
         Powodem podjęcia tego właśnie tematu w ramach przedmiotu Projekt Integrujący, było uświetnienie budynku Instytu Techniki Cieplnej.
-        Ponadto dodatkową pobudką była chęć zmierzenia się z mechanicznym problemem techniczym, z którym nie mieliśmy styczności.
+        Ponadto dodatkową pobudką była chęć zmierzenia się z nietrywialnym problemem zaprojektowania analogowego zegara o dużych gabarytach.
+        Jest to skomplikowany mechanizm, którego sposób działania nie jest zbyt dobrze uokumentowany w powszechnie dostępnej współczesnej literaturze. Takie zegary sa zwykle projektowane w sposób rzemieślniczy. Kolejną motywacją była chęć odkrycia metodologii projektowania takich mechanizmów od strony inżynierskiej.
         \subsection{Przegląd rozwiązań technicznych w technice zegarowej}
         Wśród większości mechanicznych zegarów wieżowych można znaleźć wiele podobieństw.
-        W prawie każdym można wyodrębnić te same moduły.
-        Jednakże najciekawsze są szczegóły, zaś tutaj można znaleźć w obrębie poszczególnych modułów różne rozwiązania techniczne:
+        Dziełanie najważniejszych cześci może być jednak zreaizowane w różny sposób:
         \begin{enumerate}
         	\item Układ taktujący - istnięją dwa rozwiązania wychwytowe:
         	\begin{itemize}
-        		\item symetryczna kotwica wychwytowa - prostsze w wykonaniu, jednakże mniej dokładnie odmierza czas,
-        		\item niesymetryczna kotwica wychwytowa - trudniejsze w wykonaniu, lecz pozwala uzyskać większość dokładność odmierzanego czasu.
+        		\item symetryczna kotwica wychwytowa - jest zdecydowanie trudniejsza w wykoaniu, wymaga dokładnych tolerancji i bardzo dobrego dopasowania kształtów zębów koła wychwytowego i kotwicy. Jest wykorzystywana w małych dokładnych zegarach.
+        		\item niesymetryczna kotwica wychwytowa - jest prostsza w wykonaniu, lecz odmierza czas z mniejszą dokładnością. Jest zwykle wykorzystywana w zegarach wierzowych gdzie dokładnosć co do sekundy nie jest zwykle potrzebna i osiągalna.
         	\end{itemize}
         \item Nie wiem czy coś jeszcze godnego uwagi było
        	\end{enumerate}	
@@ -54,7 +53,7 @@
            		Ciąg główny składa się z 4 kół zębatych o zarysie ewolwentowym, z koła wychwytowego oraz z 4 zębników połączonych z poszczególnymi kołami.
   				Każdy z zębników ma 12 zębów.
   				
-  				Układ składa się z następujących elementów (patrz rysunek \ref{}):
+  				Układ składa się z następujących elementów (patrz rysunek \ref{fig:kacpermechanizmassmdwg1}):
   				\begin{description}
   					\item[Koło główne] - jest ono połączone z magazynem energii zegara. Posiada ono 96 zębów.
   					\item[Zębnik nr 1] - wspołpracuje z kołem głównym.
@@ -69,10 +68,16 @@
   				Razem koła zapewniają przełożenie 600:1.
   				Biorąc pod uwagę, że koło wychwytowe wykonuje 1200 obrotów na jeden dzień pracy (koło ma 36 zębów; mechanizm taktujący pozwala na przesunięcie o jeden ząb na 2 sekundy, czyli pół założonego okresu wahadła) przełożenia zostały dobrane w ten sposób aby otrzymać odpowiednie prędkości obrotowe wskazówek.
   				Koło główne wykonuje 2 obroty w ciągu jednego dnia.
+  				\begin{figure}
+  					\centering
+  					\includegraphics[width=\linewidth]{Projekt/ciag_glowny}
+  					\caption{Ciąg główny mechanizmu napędowego.}
+  					\label{fig:kacpermechanizmassmdwg1}
+  				\end{figure}
   				
   			\subsubsection{Mechanizm wskazowy} 
   				
-  				Mechanizm wskazowy składa się z trzech kół zębatych oraz dwóch zębników (patrz rysunek \ref{}):
+  				Mechanizm wskazowy składa się z trzech kół zębatych oraz dwóch zębników (patrz rysunek \ref{fig:mechwskaz}):
   				\begin{description}
   					\item[Koło centralne] - współpracuje z kołem nr 1. Posiada 48 zębów.
   					\item[Zebnik nr 5] - jest połączony z kołem centralnym. Posiada 15 zębów.
@@ -82,6 +87,14 @@
   				\end{description} 
   				Koło centralne jest jednocześnie kołem połączonym ze wskazówką minutową. Koła godzinowe zapewniają razem przełożenie 1:12.
   				Dzięki temu wskazówka godzinowa obraca się 2 razy w ciągu jednego dnia.
+  				
+  				\begin{figure}
+  					\centering
+  					\includegraphics[width=\linewidth]{Projekt/mech_wskaz}
+  					\caption{Mechanizm wskazowy}
+  					\label{fig:mechwskaz}
+  				\end{figure}
+  				
         \subsection{Układ napędowy - magazyn energii}
         	\input{Projekt/beben_projekt.tex}
         \subsection{Wskazówki}
@@ -93,13 +106,21 @@
         \subsection{Układ nastawny}
         Niezbędnym elementem każdego zegara jest moduł pozwalający skorygować wskazywaną godzinę.
         Wiąże się to między innymi ze skończoną dokładnością wykonania wszystkich elementów zegara oraz konieczność zatrzymania go na czas serwisu.
-        Analizując możliwe rozwiązania oraz istniejące już konstrukcje, postanowiono zaprojektować ten układ z użyciem rozłącznego sprzęgła ciernego.
+        Analizując możliwe rozwiązania oraz istniejące już konstrukcje, postanowiono zaprojektować ten układ z użyciem sprzęgła.
         Ma ono następujące zalety:
         \begin{itemize}
         	\item Pozwala na dowolny obrót ustawianymi wskazówskami.
         	\item Nie wymaga zatrzymania układu taktującego na czas nastawu godziny.
         \end{itemize}
-    
+		Piasta sprzęgła dziala w sposób zaciskowy (patrz rysunek \ref{fig:szpeglo}).
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{Projekt/szpeglo}
+			\caption{Mechanizmustawiania godziny.}
+			\label{fig:szpeglo}
+		\end{figure}
+		
     	
         \subsection{Układ taktujący}
             Układ taktujący składa się z trzech głównych elementów:
@@ -117,13 +138,20 @@
 
             Ruch wychwytu jest sprzęgnięty z ruchem wahadła. W ten sposób, dobierając odpowiednio ilość zębów koła wychwytowego oraz przełożenia w układzie napędowym, można skorelować długość okresu wahadła z ilością taktów zegara.
             
-            \begin{figure}[b]
+            \begin{figure}
             \centering
             \includegraphics[width=0.9\linewidth]{Obliczenia/wychwyt}
             \caption{Schematyczny rysunek mechanizmu wychwytowego. Na rysunku widoczne są dwa stany w jakich może znajdować się mechanizm. Po lewej stronie zaprezentowana jest sytuacja, w której ruch koła jest zablokowany przez wychwyt po lewej stronie. Po prawej, koło wychwytowe zostało zwolnione, obróciło się (stare położenie jest zaznaczone szarym kolorem), a następnie zostało zablokowane po prawej stronie. Strzałką zaznaczono kierunek obrotu koła wychwytowego.} 
             \label{fig::wychwyt}
             \end{figure}
-
+			
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.6\linewidth]{Projekt/takt}
+				\caption{Mechanizm taktujący}
+				\label{fig:takt}
+			\end{figure}
+			
 
         \subsection{Rama}
         	Rama zostanie wykonana ze spawanych kształtowników stalowych. Podstawowym założeniem było aby była ona niezależna od całej reszty mechanizmu. Wszystkie koła zębate są zamocowane na dwóch stalowych płytach przykręconych do kształtowników. Bęben, na który nawinięta jest lina z ciężarkiem jest ułożyskowany na dwóch łożyskach wahliwych tak, aby kompensować niedokładności ramy wynikające ze spawania.
