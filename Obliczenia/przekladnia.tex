@@ -42,23 +42,81 @@ Jak widać naprężenia na znaczącym poziomie pojawiają tylko w pobliżu stref
 Z racji na ich wartość (259,97 MPa) zdecydowano, że koła zębate muszą być wykonane ze stali konstrukcyjnej C55 ulepszanej cieplnie do Re=540 MPa.
 Zapewni to doraźny współczynnik bezpieczeństwa n=2,07.
 
-Na koniec postanowiono dodatkowo sprawdzić elementy pod kątem zmęczeniowym.
+\begin{figure}[th]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Obliczenia/von_mises_stress_przekladnia}
+	\caption{Naprężenia zredukowane (von Mises) w pobliżu rejonu kontaktu, dla ułożenia kół w którym występują najwyższe naprężenia zredukowane} 
+	\label{fig::stress_von_mises_przekladnia}
+\end{figure}
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Obliczenia/von_mises_stress_przeszkalowany_przekladnia}
+	\caption{Naprężenia zredukowane (von Mises) w obu współpracujących zębach przy zmienionej skali (ułożenie kół jak poprzednio)} 
+	\label{fig::stress_von_mises_przeskalowany_przekladnia}
+\end{figure}
+
+W następnym kroku postanowiono dodatkowo sprawdzić elementy pod kątem zmęczeniowym.
 W tym celu najpierw zakładana jest twardość materiału:
 \begin{equation}
 HB=320
 \end{equation} 
-To z kolei pozwala określić krytyczne naprężenia stykowe:
+To z kolei pozwala określić krytyczne naprężenia stykowe oraz zmęczeniowy współczynnik bezpieczeństwa:
 \begin{equation}
-\sigma_H = 710MPa
+\sigma_H = 2HB+70 [MPa]= 710MPa
+\end{equation}
+\begin{equation}
+\ N_H=\frac{710 MPa}{259,97 MPa}=2,73
 \end{equation} 
 
 Naprężenia otrzymane w symulacji są niższe.
-Zatem zgodnie z teorią Woehlera analizowana para kół zębatych nie osiągnie kresu wytrzymałości zmęczeniowej
+Zatem zgodnie z teorią Woehlera analizowana para kół zębatych nie osiągnie kresu wytrzymałości zmęczeniowej.
+
+Oprócz najbardziej znaczących naprężeń stykowych, zęby są również zginane.
+Co więcej moment zginający nie jest stały ze względu na przemieszczanie się punktu przyporu.
+Do poniższych obliczeń wybrano moment w którym naprężenia od zginania są maksymalne.
+Na rysunku \ref{fig::stress_von_mises_przeskalowany_przekladnia} widać, że maksymalne naprężenia występujące u podstawy zęba wynoszą:
+
+\begin{equation}
+\sigma_zg =26MPa
+\end{equation}
+
+Rozważany przypadek zginania można uznać za odzerowy tętniący, stąd granica zmęczenia i współczynnik bezpieczeństwa:
+
+\begin{equation}
+\ Z_{gj} = 490MPa
+\end{equation}
+\begin{equation}
+\ N_{gj}=\frac{490 MPa}{26 MPa}=18,85
+\end{equation} 
+
+Obliczony współczynik pokazuje, że pod wględem zmęczenia związanego ze zginaniem u podstawy zęba, nie istnieje tutaj żadne zagrożenie.
+
+Następnie postanowiono sprawdzić zakres kontaktu. 
+Zrobiono to poprzez analizę poślizgu punktów znajdujących się na stykających się powierzchniach (Rysunek \ref{fig::zakres_kontaktu}). 
+Pokazuje on, że w części strefy kontaktu występują dodatnie naprężenia styczne (ujemny poślizg) w drugiej zaś przeciwnie.
+W przypadku zakresu dodatniego maksymalna wartość to $\tau_+$=35,7 MPa, zaś dla ujemnego $\tau_-$=-33,24 MPa.
+Oprócz tego występuje punkt gdzie nie występuje poślizg, zatem nie będzie tam również naprężeń stycznych.
+Ponadto układ naprężeń stycznych będzie skierowany na zewnątrz punktu bez poślizgu.
+Poza wymienionymi informacjami, analiza ta pokazując zakres kontaktu pozwala na określenie możliwego zakresu podcięcia technologicznego symulowanych zębów.
 
 
-\begin{figure}[t]
+\begin{figure}[th]
 	\centering
-	\includegraphics[width=0.9\linewidth]{Obliczenia/von_mises_stress_przekladnia}
-	\caption{Naprężenia zredukowane (von Mises) dla ułożenia kół w którym występują najwyższe naprężenia zredukowane} 
-	\label{fig::stress_von_mises_przekladnia}
+	\includegraphics[width=0.9\linewidth]{Obliczenia/zakres_kontaktu}
+	\caption{Poślizg na stykających się powierzchniach kół zębatych} 
+	\label{fig::zakres_kontaktu}
 \end{figure}
+
+Na koniec przeanalizowano siłę reakcji między zębami na kierunku obwodowym.
+Na początku przebiegu widoczny jest liniowy wzrost związany ze stopniowym przykładniem obciążenia przez program.
+W dalszej części widać, że siła jest stała.
+Potwierdza to dobrą jakość odwzorania ewolwenty i spełnia wymagane we wcześniej fazie projektu stałe przełożenie.
+
+\begin{figure}[th]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Obliczenia/sila_reakcji_obwodowa_w_zebie}
+	\caption{Siła reakcji między zębami na kierunku obwodowym} 
+	\label{fig::sila_obwodowa}
+\end{figure}
+
