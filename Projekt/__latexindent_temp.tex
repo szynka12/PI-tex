@@ -25,10 +25,10 @@
         \item Mechanizm magazynowania energii:
 			\begin{itemize}
 				\item sprężyna skrętna - wykorzystywana głownie w zegarkach naręcznych, wymaga bardzo lekkiego mechanizmu o małych oporach ruchu, a więc też dużej dokładności wykonania.
-				\item masa na linie nawinięta na bęben - rozwiązanie wykorzystywane w zegarach stojących (tzw. \textit{grandfather clock}) oraz wieżowych.
+				\item masa na linie nawinięta na bęben - rozwiązanie wykorzystywane w zegarach stojących (tzw. grandfather clock)
 			\end{itemize}
        	\end{enumerate}	
-		
+
     \section{Założenia projektowe}
     Na początku tworzenia projektu przeanalizowano wiele aspektów całego przedsięwzięcia.
     Miało to na celu stworzyć pierwszy konceptu tego projektu, zdefiniować istotne wielkości dotyczące samej konstrukcji jak i eksploatacji oraz nadać im wstępne wartości.
@@ -60,7 +60,7 @@
   				Układ składa się z następujących elementów (patrz rysunek \ref{fig:kacpermechanizmassmdwg1}):
   				\begin{description}
   					\item[Koło główne] - jest ono połączone z magazynem energii zegara. Posiada ono 96 zębów.
-  					\item[Zębnik nr 1] - współpracuje z kołem głównym.
+  					\item[Zębnik nr 1] - wspołpracuje z kołem głównym.
   					\item[Koło nr 1] - jest połączone z zębnikiem nr 1. Posiada 72 zęby.
   					\item[Zębnik nr 2] - współpracuje z kołem nr 1.
   					\item[Koło nr 2] - jest połączone z zębnikiem nr 2. Posiada 60 zębów.
@@ -116,12 +116,12 @@
         	\item Pozwala na dowolny obrót ustawianymi wskazówskami.
         	\item Nie wymaga zatrzymania układu taktującego na czas nastawu godziny.
         \end{itemize}
-		Piasta sprzęgła działa w sposób zaciskowy (patrz rysunek \ref{fig:szpeglo}).
+		Piasta sprzęgła dziala w sposób zaciskowy (patrz rysunek \ref{fig:szpeglo}).
 		
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.8\linewidth]{Projekt/szpeglo}
-			\caption{Mechanizm ustawiania godziny.}
+			\caption{Mechanizmustawiania godziny.}
 			\label{fig:szpeglo}
 		\end{figure}
 		
@@ -156,41 +156,7 @@
 				\label{fig:takt}
 			\end{figure}
 			
-		\subsection{Sworzeń wahadła}
-		
-		Wahadło zawieszone zostanie na sworzniu średnicy \(D_S = 30 mm\), wykonanym ze stali A2. Jej granica plastyczności to \(Rm = 500\). Sworzeń jest podparty w dwóch punktach oddalonych od siebie o \(L = 120 mm\). Ciężar wahadła wynosi \( m_w =50 kg\). Maksymalny moment gnący w sworzniu wynosi
-		
-		\begin{equation}
-		Mg = \frac{m_w g L}{2} = \frac{50*10*0.12}{2} = 30 Nm
-		\end{equation}
-			
-Moment bezwładności przekroju kołowego to \(I_s = \frac{\pi D_s^4}{64} =  \). Maksymalne naprężenia w sworzniu wynoszą:
-
-\begin{equation}
-\sigma_{\max} = \frac{Mg \cdot D}{2Ix} \approx 5.8 Mpa
-\end{equation}
-
-Granica zmęczenia na zginanie może zostać przybliżona jako \(Z_g = 0.5Rm\). Podczas pracy wahadło, poza obciążeniem statycznym przekazuje do sworznia również obciążenia dynamiczne, pochodzące od sił odśrodkowych. Przy amplitudzie \(A = 4^o\), i okresie \(T = 4 s\)maksymalna prędkość na końcu wahadła o długości \(L_w = 4m\) wynosi:
-\begin{equation}
-v_{\max} = \frac{A \cdot 2\pi}{T}L = \frac{4 \cdot 2\pi}{360 \cdot 4}4 = 0.3 m/s
-\end{equation}
 	
-Co odpowiada sile odśrodkowej
-\begin{equation}
-F_w = \frac{m v_{\max}^2}{L} = 35 N
-\end{equation}
-
-Siła ta przekłada się na Zwiększone naprężenia w sworzniu
-\begin{equation}
-\sigma_{\max} = 10 Mpa
-\end{equation}
-
-Współczynnik bezpieczeństwa zmęczeniowego na zginanie wynosi zatem:
-\begin{equation}
-\delta_s = \frac{Z_g}{\sigma_{\max}} = \frac{250}{10} = 25
-\end{equation}
-Co zapewnia wytrzymałość zmęczeniową i doraźną.
-
         \subsection{Rama}
         	Rama zostanie wykonana ze spawanych kształtowników stalowych. Podstawowym założeniem było aby była ona niezależna od całej reszty mechanizmu. Wszystkie koła zębate są zamocowane na dwóch stalowych płytach przykręconych do kształtowników. Bęben, na który nawinięta jest lina z ciężarkiem jest ułożyskowany na dwóch łożyskach wahliwych tak, aby kompensować niedokładności ramy wynikające ze spawania.
         	
