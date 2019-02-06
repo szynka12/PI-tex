@@ -100,12 +100,228 @@
   				\end{figure}
   				
         \subsection{Układ napędowy - magazyn energii}
-        	\input{Projekt/beben_projekt.tex}
-        \subsection{Wskazówki}
-        Kolejnym istotnym elementem projektu są wskazówki.
-        Może się wydawać, że istotny jest tylko ich wygląd.
-        Jednakże ze względu na obecne w układzie przełożenie, muszą być wystarczająco dobrze wyważone.
-        W innym wypadku moment siły wprowadzany z bębna może się okazać nie wystarczający.
+			\input{Projekt/beben_projekt.tex}
+		\subsection{Osadzenie kół na wałach}
+
+		W celu osadzenia kół na wale zdecydowano się na połączenia wciskowe. Zadecydowało o tym kilka powodów:
+		\begin{enumerate}
+			\item Jest dobrą i o wiele tańszą alternatywą dla wykonywania części pełniącej jednocześnie funkjcę zębnika i wału.
+			\item Połączenie jest nierozłączne dzięki czemu ma bardzo niskie wymagania jeśli chodzi o konserwację (brak ruchomych elementów takich jak np. wpust). 
+			\item Jest dobrą alternatywą dla spawania, ponieważ wał potrafi wykrzywić się podczas spawania. Połączenie wciskowe jest dodatkowo prostsze technologicznie (wymaga tylko podgrzania osadzanej części, w przypadku spawania wymagana jest dodatkowa obróbka po połaćzeniu obu części).
+			\item Zębnik jest małym elementem, co utrudnia zastosowanie wpustów.
+			\item Jest to metoda typowo spotykana w zegarach.
+		\end{enumerate}
+		Dokonano obliczeń najbardziej obciążonych połączeń wciskowych - koła głównego z wałem i zębnika nr 1 z tym samym wałem.
+
+		\subsubsection{Koło główne}
+		\paragraph{Parametry zadane}
+		\begin{itemize}
+			\item maksymalny moment obrotowy $M = 60$ [Nm]
+			\item średnica wału $d_{wal} = d = 30$ [mm]
+			\item szerokość połączenia $b = 15$ [mm]
+			\item średnica okręgu bazowego koła $d_2 = 70$ [mm]
+			\item średnica wewnętrzna wału $d_{wal}^{wew} = d_1 = 0$ [mm]
+			\item współczynnik nadmiaru nośności $k_{mom} = 1.3$ [-]
+			\item materiał wału - S355jr, $Re = 330$ [MPa],
+			\item materiał koła - C55, hartowana powierzchniowo, $Re = 540s$ [MPa],
+			\item współczynnik tarcia $f_{w-k} = 0.14$ - łączenie ogrzaniem-oziębieniem.
+		\end{itemize}
+		Obliczono:
+		\begin{enumerate}
+			\item Wielkość współczynników:
+				\begin{align}
+					c_1 &= \dfrac{(d^2 +d_1^2)}{(d^2 - d_1^2)} - \upsilon_1 = 0.7 \\[2em]	
+					c_2 &= \dfrac{(d_2^2 +d^2)}{(d_2^2 - d^2)} + \upsilon_2 = 1.75
+				\end{align}
+				
+				przy czym $\upsilon_1 = \upsilon_2 = 0.3$ - współczynniki Poissona dla wału i koła.
+				
+			\item Minimalny wcisk na powierzchni styku
+				\begin{align}
+					p_{min} &\geq \dfrac{2 k_{mom} T \cdot 10^3}{\pi d^2 b f_{w-k}} = 26.27 \ \text{[MPa]} 
+				\end{align}
+			
+			\item Minimalny wcisk obliczeniowy w połączeniu
+				\begin{align}
+					N_{min} &= 10^3 \cdot p_{min} d \left(\dfrac{c_1}{E_1} + \dfrac{c_2}{E_2}\right) = 9.41 \ [\mu \text{m}] 
+				\end{align}
+			
+				przy czym $E_1 = E_2 = 205$ [GPa] - moduł Younga materiałów.
+				
+			\item Korekta na plastyczne odkształcenie wierzchołków nierówności powierzchni podczas montażu \\
+			Przyjęto chropowatości czopa i otworu krzywki równe $R_{z1} = R_{z2} = 6.3$ - szlifowanie dokładne.
+				\begin{align}
+					\gamma = 1.2 (R_{z1} + R_{z2}) = 15.12 \ [\mu \text{m}]
+				\end{align}
+			
+			\item Minimalny dopuszczalny wcisk w połączeniu
+				\begin{align}
+					N_{min \ dop} = N_{min} + \gamma = 24.53 \ [\mu \text{m}] 
+				\end{align}
+			
+			
+			\item Maksymalny nacisk na powierzchni styku
+			\begin{itemize}
+				\item dla wału:
+				\begin{align}
+				P_{1 \ max} &= 0.5 Re \left[1 - \left(\dfrac{d_1}{d}\right)^2\right] = 270 \ \text{[MPa]}
+				\end{align}
+				
+				\item dla koła:
+				\begin{align}
+				P_{2 \ max} &= 0.5 Re \left[1 - \left(\dfrac{d}{d_2}\right)^2\right] = 220,40 \ \text{[MPa]}
+				\end{align}
+			\end{itemize}
+
+			\item Największy obliczeniowy wcisk w połączeniu
+			\begin{align}
+				N_{max} &= 10^3 \cdot p_{max (1,2)} d \left(\dfrac{c_1}{E_1} + \dfrac{c_2}{E_2}\right) = 96,80 \ [\mu \text{m}] 
+			\end{align}
+
+			\item Największy dopuszczalny wcisk w połączeniu
+			\begin{align}
+				N_{max \ dop} = N_{max} + \gamma = 111,92 \ [\mu \text{m}]
+			\end{align}
+			\end{enumerate}
+			
+			\par Dobrano następujące pasowanie:
+			\begin{enumerate}
+				\item Rodzaj pasowania \tab $H6/t6$
+				
+				\item Górna odchyłka otworu	\tab $ES = +13 \ [\mu \text{m}]$
+				\item Dolna odchyłka otworu \tab $EI = 0 \ [\mu \text{m}]$
+				\item Górna odchyłka wałka \tab $es = +54 \ [\mu \text{m}]$
+				\item Dolna odchyłka wałka \tab $ei = +41 \ [\mu \text{m}]$
+				\item Maksymalny wcisk \tab $N_{max} = es - EI = 54 \ [\mu \text{m}]$
+				\item Minimalny wcisk \tab $N_{min} = ei - ES = 28 \ [\mu \text{m}]$ \\
+			\end{enumerate}
+		% 
+		
+		% \end{enumerate}
+		
+		\noindent Warunek wytrzymałości części jest spełniony:
+		\begin{align}
+			N_{max} &\leq N_{max \ dop} 
+		\end{align}
+		
+		\noindent Warunek wytrzymałości połączenia jest spełniony:
+		\begin{align}
+			N_{min} &\geq N_{min \ dop} 
+		\end{align}
+		
+		\noindent Różnica temperatur do montażu skurczowego:
+		\begin{align}
+			\Delta T &= \dfrac{N_{max}}{d \cdot \alpha_T} \approx 163 \ \text{[K]}
+		\end{align}
+		
+		gdzie $\alpha_T \approx 11 \cdot 10^{-6} \ \left[\dfrac{1}{\text{K}}\right]$ to współczynnik rozszerzalności cieplnej stali.
+
+		\subsubsection{Zębnik}
+		\paragraph{Parametry zadane}
+		\begin{itemize}
+			\item maksymalny moment obrotowy $M = 7,5$ [Nm]
+			\item średnica wału $d_{wal} = d = 20$ [mm]
+			\item szerokość połączenia $b = 30$ [mm]
+			\item średnica okręgu bazowego koła $d_2 = 28,5$ [mm]
+			\item średnica wewnętrzna wału $d_{wal}^{wew} = d_1 = 0$ [mm]
+			\item współczynnik nadmiaru nośności $k_{mom} = 1.3$ [-]
+			\item materiał wału - S355jr, $Re = 360$ [MPa],
+			\item materiał zębnika - C55, hartowana powierzchniowo, $Re = 540s$ [MPa],
+			\item współczynnik tarcia $f_{w-k} = 0.14$ - łączenie ogrzaniem-oziębieniem
+		\end{itemize}
+		Obliczono:
+		\begin{enumerate}
+			\item Wielkość współczynników:
+				\begin{align}
+					c_1 &= \dfrac{(d^2 +d_1^2)}{(d^2 - d_1^2)} - \upsilon_1 = 0.7 \\[2em]	
+					c_2 &= \dfrac{(d_2^2 +d^2)}{(d_2^2 - d^2)} + \upsilon_2 = 3,24
+				\end{align}
+				
+				przy czym $\upsilon_1 = \upsilon_2 = 0.3$ - współczynniki Poissona dla wału i zebnika.
+				
+			\item Minimalny wcisk na powierzchni styku
+				\begin{align}
+					p_{min} &\geq \dfrac{2 k_{mom} T \cdot 10^3}{\pi d^2 b f_{w-k}} = 3,69 \ \text{[MPa]} 
+				\end{align}
+			
+			\item Minimalny wcisk obliczeniowy w połączeniu
+				\begin{align}
+					N_{min} &= 10^3 \cdot p_{min} d \left(\dfrac{c_1}{E_1} + \dfrac{c_2}{E_2}\right) = 1,42 \ [\mu \text{m}] 
+				\end{align}
+			
+				przy czym $E_1 = E_2 = 205$ [GPa] - moduł Younga materiałów.
+				
+			\item Korekta na plastyczne odkształcenie wierzchołków nierówności powierzchni podczas montażu \\
+			Przyjęto chropowatości czopa i otworu krzywki równe $R_{z1} = R_{z2} = 6,3$ - szlifowanie dokładne.
+				\begin{align}
+					\gamma = 1.2 (R_{z1} + R_{z2}) = 15.12 \ [\mu \text{m}]
+				\end{align}
+			
+			\item Minimalny dopuszczalny wcisk w połączeniu
+				\begin{align}
+					N_{min \ dop} = N_{min} + \gamma = 16,54 \ [\mu \text{m}] 
+				\end{align}
+			
+			
+			\item Maksymalny nacisk na powierzchni styku
+			\begin{itemize}
+				\item dla wału:
+				\begin{align}
+				P_{1 \ max} &= 0.5 Re \left[1 - \left(\dfrac{d_1}{d}\right)^2\right] = 255 \ \text{[MPa]}
+				\end{align}
+				
+				\item dla koła:
+				\begin{align}
+				P_{2 \ max} &= 0.5 Re \left[1 - \left(\dfrac{d}{d_2}\right)^2\right] = 114,19 \ \text{[MPa]}
+				\end{align}
+			\end{itemize}
+
+			\item Największy obliczeniowy wcisk w połączeniu
+			\begin{align}
+				N_{max} &= 10^3 \cdot p_{max (1,2)} d \left(\dfrac{c_1}{E_1} + \dfrac{c_2}{E_2}\right) = 86,5 \ [\mu \text{m}] 
+			\end{align}
+
+			\item Największy dopuszczalny wcisk w połączeniu
+			\begin{align}
+				N_{max \ dop} = N_{max} + \gamma = 101,62 \ [\mu \text{m}]
+			\end{align}
+			\end{enumerate}
+			
+			\par Dobrano następujące pasowanie:
+			\begin{enumerate}
+				\item Rodzaj pasowania \tab $H6/s6$
+				\item Górna odchyłka otworu	\tab $ES = +13 \ [\mu \text{m}]$
+				\item Dolna odchyłka otworu \tab $EI = 0 \ [\mu \text{m}]$
+				\item Górna odchyłka wałka \tab $es = +56 \ [\mu \text{m}]$
+				\item Dolna odchyłka wałka \tab $ei = +35 \ [\mu \text{m}]$
+				\item Maksymalny wcisk \tab $N_{max} = es - EI = 56 \ [\mu \text{m}]$
+				\item Minimalny wcisk \tab $N_{min} = ei - ES = 22 \ [\mu \text{m}]$ \\
+			\end{enumerate}
+		% 
+		
+		% \end{enumerate}
+		
+		\noindent Warunek wytrzymałości części jest spełniony:
+		\begin{align}
+			N_{max} &\leq N_{max \ dop} 
+		\end{align}
+		
+		\noindent Warunek wytrzymałości połączenia jest spełniony:
+		\begin{align}
+			N_{min} &\geq N_{min \ dop} 
+		\end{align}
+		
+		\noindent Różnica temperatur do montażu skurczowego:
+		\begin{align}
+			\Delta T &= \dfrac{N_{max}}{d \cdot \alpha_T} \approx 254,5 \ \text{[K]}
+		\end{align}
+		
+
+        % \subsection{Wskazówki}
+        % Kolejnym istotnym elementem projektu są wskazówki.
+        % Może się wydawać, że istotny jest tylko ich wygląd.
+        % Jednakże ze względu na obecne w układzie przełożenie, muszą być wystarczająco dobrze wyważone.
+        % W innym wypadku moment siły wprowadzany z bębna może się okazać nie wystarczający.
         
         \subsection{Układ nastawny}
         Niezbędnym elementem każdego zegara jest moduł pozwalający skorygować wskazywaną godzinę.
@@ -113,8 +329,8 @@
         Analizując możliwe rozwiązania oraz istniejące już konstrukcje, postanowiono zaprojektować ten układ z użyciem sprzęgła.
         Ma ono następujące zalety:
         \begin{itemize}
-        	\item Pozwala na dowolny obrót ustawianymi wskazówskami.
-        	\item Nie wymaga zatrzymania układu taktującego na czas nastawu godziny.
+        	\item Pozwala na dowolny obrót ustawianymi wskazówkami.
+        	\item Nie wymaga zatrzymania układu taktującego na czas ustawiania godziny.
         \end{itemize}
 		Piasta sprzęgła działa w sposób zaciskowy (patrz rysunek \ref{fig:szpeglo}).
 		
