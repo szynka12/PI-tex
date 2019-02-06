@@ -152,7 +152,41 @@
 				\label{fig:takt}
 			\end{figure}
 			
+		\subsection{Sworzeń wahadła}
+		
+		Wahadło zawieszone zostanie na sworzniu średnicy \(D_S = 30 mm\), wykonanym ze stali A2. Jej granica plastyczności to \(Rm = 500\). Sworzeń jest podparty w dwóch punktach oddalonych od siebie o \(L = 120 mm\). Ciężar wahadła wynosi \( m_w =50 kg\). Maksymalny moment gnący w sworzniu wynosi
+		
+		\begin{equation}
+		Mg = \frac{m_w g L}{2} = \frac{50*10*0.12}{2} = 30 Nm
+		\end{equation}
+			
+Moment bezwładności przekroju kołowego to \(I_s = \frac{\pi D_s^4}{64} =  \). Maksymalne naprężenia w sworzniu wynoszą:
+
+\begin{equation}
+\sigma_{\max} = \frac{Mg \cdot D}{2Ix} \approx 5.8 Mpa
+\end{equation}
+
+Granica zmęczenia na zginanie może zostać przybliżona jako \(Z_g = 0.5Rm\). Podczas pracy wahadło, poza obciążeniem statycznym przekazuje do sworznia również obciążenia dynamiczne, pochodzące od sił odśrodkowych. Przy amplitudzie \(A = 4^o\), i okresie \(T = 4 s\)maksymalna prędkość na końcu wahadła o długości \(L_w = 4m\) wynosi:
+\begin{equation}
+v_{\max} = \frac{A \cdot 2\pi}{T}L = \frac{4 \cdot 2\pi}{360 \cdot 4}4 = 0.3 m/s
+\end{equation}
 	
+Co odpowiada sile odśrodkowej
+\begin{equation}
+F_w = \frac{m v_{\max}^2}{L} = 35 N
+\end{equation}
+
+Siła ta przekłada się na Zwiększone naprężenia w sworzniu
+\begin{equation}
+\sigma_{\max} = 10 Mpa
+\end{equation}
+
+Współczynnik bezpieczeństwa zmęczeniowego na zginanie wynosi zatem:
+\begin{equation}
+\delta_s = \frac{Z_g}{\sigma_{\max}} = \frac{250}{10} = 25
+\end{equation}
+Co zapewnia wytrzymałość zmęczeniową i doraźną.
+
         \subsection{Rama}
         	Rama zostanie wykonana ze spawanych kształtowników stalowych. Podstawowym założeniem było aby była ona niezależna od całej reszty mechanizmu. Wszystkie koła zębate są zamocowane na dwóch stalowych płytach przykręconych do kształtowników. Bęben, na który nawinięta jest lina z ciężarkiem jest ułożyskowany na dwóch łożyskach wahliwych tak, aby kompensować niedokładności ramy wynikające ze spawania.
         	
