@@ -149,7 +149,7 @@
             \label{fig::wychwyt}
             \end{figure}
 			
-			\begin{figure}[th]
+			\begin{figure}[t]
 				\centering
 				\includegraphics[width=0.6\linewidth]{Projekt/takt}
 				\caption{Mechanizm taktujący}
@@ -225,7 +225,7 @@ Co zapewnia wytrzymałość zmęczeniową i doraźną.
         	\item Położenie ciężarka na jednym z końców lub w środku bębna - przypadki te należy sprawdzić niezależnie dla obu powyższych.
         \end{itemize}
         
-       		Reasumując, należy przeanalizować 6 przypadków obciążeń. 
+       		      		
        		
        		\begin{table}[h]
        			\centering
@@ -246,10 +246,87 @@ Co zapewnia wytrzymałość zmęczeniową i doraźną.
        			\label{tab::beben}
        		\end{table}
         	
+        	Reasumując, należy przeanalizować 6 przypadków obciążeń.
+        	W tym celu wykonano 2 wykresy momentów gnących i skręcających w przypadku opuszczania obciążenia oraz nakręcania zegara.
+        	Na każdym z nich przedstawiono 3 przypadki momentów zginania związane z położeniem obciążenia na bębnie.
+        	Analizując te wyniki wybrano dwa najbardziej obciążone miejsca (oznaczono je przerywanymi liniami na wykresach).
+        	Zielona przerywana linia odpowiada lewemu podparciu bębna (siła $F_1$).
+        	W miejscu tym jest największy moment gnący.
+        	Ponadto w przypadku nawijania liny na bęben pojawia się dodatkowo moment skręcający.
+        	Stąd warto wykonać dalsze obliczenia dla tego miejsca podczas nawijania liny.
+        	Miejsce oznaczone czerwoną przerywaną linią wybrano ze względu na obecny tam karb.
+        	Mianowicie stosunek średnic jaki i obciążenie są największe dla tego właśnie odstopniowania.
+        	Oprócz tego istotny jest tutaj przypadek opuszczania obciążenia w sytuacji gdy znajduje się ono w miejscu przyłożenia siły $F_2$.
+        	
         	\begin{figure}[th]
         		\centering
-        		\includegraphics[width=0.9\linewidth]{Projekt/momenty_gnace_rozwijanie}
-        		\caption{Wykresy momentów gnących dla 3 przypadków umiejscowienia obciążenia na bębnie.} 
+        		\includegraphics[width=0.9\linewidth]{Projekt/momenty_gnace_skrecajace_rozwijanie}
+        		\caption{Wykresy momentów gnących i momentu skręcającego dla 3 przypadków umiejscowienia obciążenia na bębnie podczas opuszczania obciążenia.} 
         		\label{fig::momenty_gnace_rozwijanie}
         	\end{figure}
         
+	        \begin{figure}[th]
+	        	\centering
+	        	\includegraphics[width=0.9\linewidth]{Projekt/momenty_gnace_skrecajace_nawijanie}
+	        	\caption{Wykresy momentów gnących i momentu skręcającego dla 3 przypadków umiejscowienia obciążenia na bębnie  podczas nakręcania zegara.} 
+	        	\label{fig::momenty_gnace_nawijanie}
+	        \end{figure}
+        
+        	Naprężenia w pierwszym przypadku wynoszą (przyjęto wstępnie średnicę 25 mm w obu miejscach):
+        	
+        	\begin{equation}
+        	\sigma_1 = \frac{Mg_1}{\frac{\pi D^3}{32}}=\frac{68946,2Nmm}{1533,98 mm^3}= 44,95 MPa
+        	\end{equation}
+			
+			\begin{equation}
+			\tau_1 = \frac{Ms}{\frac{\pi D^3}{16}}=\frac{60 000Nmm}{3067,96 mm^3}= 19,557 MPa
+			\end{equation}
+			
+			\begin{equation}
+			\sigma_{red, 1} = \sqrt{\sigma_1 ^2 + 4 \tau_1 ^2}=\sqrt{(44,95 MPa)^2+4*(19,557 MPa)^2}=59,59 MPa
+			\end{equation}
+			
+			W przypadku karbu, na początku obliczane są nominalne naprężenia:
+			
+			\begin{equation}
+			\sigma_2 = \frac{Mg_2}{\frac{\pi D^3}{32}}=\frac{15 602,7Nmm}{1533,98 mm^3}= 10,17 MPa
+			\end{equation}
+			
+			\begin{equation}
+			\tau_2 = \frac{Ms}{\frac{\pi D^3}{16}}=\frac{60 000Nmm}{3067,96 mm^3}= 19,557 MPa
+			\end{equation}
+			
+			Następnie dla zginania i skręcania są odczytywane współczynniki spiętrzenia naprężeń.
+			W celu odczytu współczynników zależnych od użytego materiału przyjmuje się, że wałek jest zrobiony ze stali S335 (Re=360 MPa).
+			Stosunek średnic w odstopniowaniu wynosi $\frac{D}{d}=1,6$ co przy promieniu zaokrąglenia $\rho=1mm$ daje następujące współczynniki koncentracji naprężeń na zginanie i skręcanie:
+			
+			\begin{equation}
+			\alpha_{k,\, zg}=2,3 \; \alpha_{k,\, s}= 2,3 
+			\end{equation}
+			 
+			 Z racji, że współczynniki $\alpha_{k,\, i}$ są sobie równe, dla dalszych współczynników zostaje pominięty dodatkowy indeks.
+			 
+			 \begin{equation}
+			 \beta_{k}=1,9 \;\;\; \varepsilon= 2,3 \;\;\; \beta_p =1,2
+			 \end{equation}
+			 
+			 Ekwiwalentne naprężenia wynoszą w tym wypadku:
+			 
+			 \begin{equation}
+			 \sigma_{red,2} = \frac{\beta_k+\beta_p-1}{\varepsilon} {\sqrt{\sigma_2 ^2 +4 \tau_2 ^2}}=\frac{1,9+1,2-1}{0,87} {\sqrt{(10,17 MPa) ^2 +4 (19,557MPa) ^2}}=53,2 MPa
+			 \end{equation}
+			
+			Po wyznaczeniu naprężeń należy wyznaczyć współczynnik bezpieczeństwa pod kątem zmęczenia:
+			
+			\begin{equation}
+			\delta=\frac{280 MPa}{59,59 MPa} \approx 4,7
+			\end{equation}
+			
+			Obliczenia pokazują, że zapas bezpieczeństwa jest bardzo duży. 
+			W celu dodatkowego potwierdzenia prawidłowego działania konstrukcji postanowiono dodatkowo obliczyć strzałkę ugięcia.
+			Przybiera ona maksymalną wartość $f_{max}=0,12 mm$ gdy obciążenie od bębna jest skupione jako siła $F_1$.
+			Wartość ta jest niewielka, zatem nie należy się obawiać nieprawidłowej pracy urządzenia z racji odkształcenia tego wału.
+			
+			
+			
+			
