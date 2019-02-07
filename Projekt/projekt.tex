@@ -427,6 +427,8 @@ Co zapewnia wytrzymałość zmęczeniową i doraźną.
         		\caption{Schemat obciążeń przyłożonych do wału, na którym zamocowany jest wolnobieg oraz bęben podczas opuszczania ciężaru zamocowanego na bębnie} 
         		\label{fig::shaft_beben}
         	\end{figure}
+        
+        
         	\begin{figure}[th]
 				\centering
 				\includegraphics[width=0.9\linewidth]{Projekt/shaft_beben2}
@@ -543,6 +545,58 @@ Co zapewnia wytrzymałość zmęczeniową i doraźną.
 			Przybiera ona maksymalną wartość $f_{max}=0,12 mm$ gdy obciążenie od bębna jest skupione jako siła $F_1$.
 			Wartość ta jest niewielka, zatem nie należy się obawiać nieprawidłowej pracy urządzenia z racji odkształcenia tego wału.
 			
+			W ramach powyższych obliczeń postanowiono zbadać również wytrzymałość dobranych łożysk (SKF 2305) do analizowanego wału.
+			Prędkość obrotowa wału jest mniejsza niż 10RPM, zatem należy sprawdzić łożysko pod kątem nośności statycznej.
+			W tym celu z pośród wszystkich analiz wybrano maksymalną wartość siły reakcji.
+			
+			\begin{equation}
+			\ s_0= \frac{C_0}{R_max}=\frac{5400 N}{1187 N}=4,54
+			\end{equation}
+			
+			Producent zaleca aby współczynnik $s_0 >=2$, jeżeli ruch jest sporadyczny a trwałe odkształcenie jest niedopuszczalne.
+			W tym przypadku wymóg ten jest spełniony.
 			
 			
+			Obliczenia wytrzymałościowe dla wału na którym zamocowane jest koło główne warto wykonać tylko dla przypadku opuszczania obciążenia, ponieważ wtedy jest on najbardziej obciążony.
+			Układ podpór i obciążeń dla tego wału przedstawiono na rysunku \ref{fig::shaft_gear}.
+			Wymiary zaznaczone na nim wynoszą odpowiednio:
 			
+			\begin{equation}
+			\ L=118mm, \;\;\;\;\; L_1 =74mm
+			\end{equation}
+			
+			\begin{figure}[th]
+				\centering
+				\includegraphics[width=0.9\linewidth]{Projekt/shaft_gear}
+				\caption{Schemat obciążeń przyłożonych do wału, na którym zamocowane jest koło główne.} 
+				\label{fig::shaft_gear}
+			\end{figure}
+		Siła przyłożona do wału jest siłą reakcji między zębami.
+		Zatem równa się:
+		
+		\begin{equation}
+		F=\frac{M_{skr}}{\frac{D_n}{2}}=\frac{60 000Nmm}{144mm}=416,67 N
+		\end{equation}
+		
+		W następnym kroku wyznaczony jest przebieg momentu gnącego i skręcającego.
+		
+		\begin{figure}[th]
+			\centering
+			\includegraphics[width=0.9\linewidth]{Projekt/shaft_gear_momenty}
+			\caption{Przebieg momentów gnących i skręcających w wale na którym osadzone jest koło główne.} 
+			\label{fig::shaft_gear_momenty}
+		\end{figure}
+		
+		Następnie sprawdzane są naprężenia.
+		
+		\begin{equation}
+		\sigma_3 = \frac{Mg_3}{\frac{\pi D_{*}^3}{32}}=\frac{11497,27Nmm}{39760,78 mm^3}= 0,289MPa
+		\end{equation}
+		
+		\begin{equation}
+		\tau_3 = \frac{Ms}{\frac{\pi D_{*}^3}{16}}=\frac{60 000Nmm}{79521,56 mm^3}= 0,75MPa
+		\end{equation}
+		
+		Wyniki są tak znikome, że dalsza analiza ich koncentracji i obliczanie współczynnika bezpieczeństwa nie są potrzebne.
+			
+	
